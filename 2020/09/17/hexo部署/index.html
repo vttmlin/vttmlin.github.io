@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="目标本次实验的终极目标是: ​    将博客同时部署到两个平台 步骤1.初始化 hexo hello world 项目1.1 全局安装hexo1npm install -g hexo    1.2 初始化 hexo项目1hexo init blog    1.3 验证初始化项目1.3.1 hexo生成静态文件1hexo g    1.3.2 本地验证1hexo s    2. gitee page">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo部署">
+<meta property="og:url" content="http://example.com/2020/09/17/hexo%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="目标本次实验的终极目标是: ​    将博客同时部署到两个平台 步骤1.初始化 hexo hello world 项目1.1 全局安装hexo1npm install -g hexo    1.2 初始化 hexo项目1hexo init blog    1.3 验证初始化项目1.3.1 hexo生成静态文件1hexo g    1.3.2 本地验证1hexo s    2. gitee page">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-17T05:37:24.000Z">
+<meta property="article:modified_time" content="2020-09-17T06:01:08.228Z">
+<meta property="article:author" content="vttmlin">
+<meta property="article:tag" content="hexo - 部署">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/09/17/hexo%E9%83%A8%E7%BD%B2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>hexo部署 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/17/hexo%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="vttmlin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hexo部署
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-17 13:37:24 / 修改时间：14:01:08" itemprop="dateCreated datePublished" datetime="2020-09-17T13:37:24+08:00">2020-09-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>本次实验的终极目标是:</p>
+<p>​    将博客同时部署到两个平台</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-初始化-hexo-hello-world-项目"><a href="#1-初始化-hexo-hello-world-项目" class="headerlink" title="1.初始化 hexo hello world 项目"></a>1.初始化 hexo hello world 项目</h3><h4 id="1-1-全局安装hexo"><a href="#1-1-全局安装hexo" class="headerlink" title="1.1 全局安装hexo"></a>1.1 全局安装hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-2-初始化-hexo项目"><a href="#1-2-初始化-hexo项目" class="headerlink" title="1.2 初始化 hexo项目"></a>1.2 初始化 hexo项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-3-验证初始化项目"><a href="#1-3-验证初始化项目" class="headerlink" title="1.3 验证初始化项目"></a>1.3 验证初始化项目</h4><h5 id="1-3-1-hexo生成静态文件"><a href="#1-3-1-hexo生成静态文件" class="headerlink" title="1.3.1 hexo生成静态文件"></a>1.3.1 hexo生成静态文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="1-3-2-本地验证"><a href="#1-3-2-本地验证" class="headerlink" title="1.3.2 本地验证"></a>1.3.2 本地验证</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-gitee-pages-的操作"><a href="#2-gitee-pages-的操作" class="headerlink" title="2. gitee pages 的操作"></a>2. gitee pages 的操作</h3><p>2.1 新建仓库 查看帮助文档 并按照操作 完成 gitee pages的建立</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/help/articles/4136">gitee pages 帮助文档</a></p>
+</blockquote>
+<p>2.2 验证仓库是否可用</p>
+<p>访问gitee pages </p>
+<p><a target="_blank" rel="noopener" href="https://vttmlin.gitee.io/">博客地址</a></p>
+<p>由于刚建立没有写任何东西 所以还是 404,这个就留着以后慢慢的添砖加瓦吧</p>
+<h3 id="3-ssh-key的生成与上传"><a href="#3-ssh-key的生成与上传" class="headerlink" title="3.ssh key的生成与上传"></a>3.ssh key的生成与上传</h3><p>我现在用的是lastpass 保存并生成的密码 密码总是很长 很难记</p>
+<p>所以上传的时候 输入密码就很麻烦 这时候就要通过 ssh key 进行上传了</p>
+<p>如果本机没有ssh key 就需要生成了 有的话直接跳过</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/help/articles/4181">ssh key 生成文档</a></p>
+</blockquote>
+<h3 id="4-开始部署"><a href="#4-开始部署" class="headerlink" title="4.开始部署"></a>4.开始部署</h3><h4 id="4-1-安装-hexo的-git-部署插件"><a href="#4-1-安装-hexo的-git-部署插件" class="headerlink" title="4.1 安装 hexo的 git 部署插件"></a>4.1 安装 hexo的 git 部署插件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-2-修改-config-yml-配置中的部署地址"><a href="#4-2-修改-config-yml-配置中的部署地址" class="headerlink" title="4.2 修改 _config.yml 配置中的部署地址"></a>4.2 修改 _config.yml 配置中的部署地址</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span></span><br><span class="line">    <span class="attr">gitee:</span> <span class="string">https://gitee.com/vttmlin/vttmlin.git</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-初始化hexo项目"><a href="#2-初始化hexo项目" class="headerlink" title="2.初始化hexo项目"></a>2.初始化hexo项目</h3><h3 id="3-选择hexo的主题"><a href="#3-选择hexo的主题" class="headerlink" title="3.选择hexo的主题"></a>3.选择hexo的主题</h3><h3 id="4-修改相关配置"><a href="#4-修改相关配置" class="headerlink" title="4.修改相关配置"></a>4.修改相关配置</h3><h3 id="5-开始部署"><a href="#5-开始部署" class="headerlink" title="5.开始部署"></a>5.开始部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+
+
+<p>6.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo-%E9%83%A8%E7%BD%B2/" rel="tag"># hexo - 部署</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/17/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96-hexo-hello-world-%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.1.</span> <span class="nav-text">1.初始化 hexo hello world 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85hexo"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 全局安装hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%88%9D%E5%A7%8B%E5%8C%96-hexo%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 初始化 hexo项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E9%AA%8C%E8%AF%81%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 验证初始化项目</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-1-hexo%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">1.3.1 hexo生成静态文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-2-%E6%9C%AC%E5%9C%B0%E9%AA%8C%E8%AF%81"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">1.3.2 本地验证</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-gitee-pages-%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">2. gitee pages 的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ssh-key%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E4%B8%8A%E4%BC%A0"><span class="nav-number">2.3.</span> <span class="nav-text">3.ssh key的生成与上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">4.开始部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E5%AE%89%E8%A3%85-hexo%E7%9A%84-git-%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 安装 hexo的 git 部署插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E4%BF%AE%E6%94%B9-config-yml-%E9%85%8D%E7%BD%AE%E4%B8%AD%E7%9A%84%E9%83%A8%E7%BD%B2%E5%9C%B0%E5%9D%80"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 修改 _config.yml 配置中的部署地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%9D%E5%A7%8B%E5%8C%96hexo%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.5.</span> <span class="nav-text">2.初始化hexo项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%80%89%E6%8B%A9hexo%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="nav-number">2.6.</span> <span class="nav-text">3.选择hexo的主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BF%AE%E6%94%B9%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">2.7.</span> <span class="nav-text">4.修改相关配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%BC%80%E5%A7%8B%E9%83%A8%E7%BD%B2"><span class="nav-number">2.8.</span> <span class="nav-text">5.开始部署</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">vttmlin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vttmlin</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
